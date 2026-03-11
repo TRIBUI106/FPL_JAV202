@@ -1,66 +1,103 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html class="h-full">
 <head>
-    <title>Categories - PolyCoffee</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Categories - PolyCoffee Hub</title>
 </head>
-<body>
+<body class="bg-cream font-sans min-h-full">
     <jsp:include page="../common/header.jsp" />
 
-    <div class="container py-4">
-        <h2 class="mb-4">Category Management</h2>
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="mb-12">
+            <h1 class="text-4xl font-bold text-mocha mb-2">Category Management</h1>
+            <p class="text-mocha/40 font-medium">Organize your beverage groups and visibility</p>
+        </div>
         
-        <div class="row g-4">
-            <!-- Form Card -->
-            <div class="col-md-4">
-                <div class="card shadow-sm border-0 border-top border-primary border-4">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-3">${category == null ? 'Add New Category' : 'Edit Category'}</h5>
-                        <form action="${pageContext.request.contextPath}/manager/categories/save" method="post">
-                            <input type="hidden" name="id" value="${category.id}">
-                            <div class="mb-3">
-                                <label class="form-label small fw-bold">Name</label>
-                                <input type="text" name="name" class="form-control" value="${category.name}" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">${category == null ? 'Create' : 'Save Changes'}</button>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <!-- Form Card (4 cols) -->
+            <div class="lg:col-span-4">
+                <div class="glass p-8 rounded-[2rem] sticky top-32">
+                    <h2 class="text-xl font-bold text-mocha mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-6 bg-coffee-700 rounded-full"></span>
+                        ${category == null ? 'New Category' : 'Edit Category'}
+                    </h2>
+                    
+                    <form action="${pageContext.request.contextPath}/manager/categories/save" method="post" class="space-y-6">
+                        <input type="hidden" name="id" value="${category.id}">
+                        <div>
+                            <label class="block text-[10px] font-bold text-mocha/30 uppercase tracking-[0.2em] mb-2">Category Name</label>
+                            <input type="text" name="name" value="${category.name}" required placeholder="e.g. Traditional Brew"
+                                   class="w-full bg-white/50 border border-coffee-100 px-5 py-4 rounded-2xl focus:ring-2 focus:ring-coffee-700/10 focus:border-coffee-700 outline-none transition-all placeholder:text-mocha/20 font-medium capitalize">
+                        </div>
+                        
+                        <div class="flex flex-col gap-3 pt-2">
+                            <button type="submit" class="btn-coffee py-4 shadow-xl">
+                                ${category == null ? 'Create Category' : 'Update Content'}
+                            </button>
                             <c:if test="${category != null}">
-                                <a href="${pageContext.request.contextPath}/manager/categories" class="btn btn-light w-100 mt-2">Cancel</a>
+                                <a href="${pageContext.request.contextPath}/manager/categories" 
+                                   class="btn-soft py-4 text-center">Cancel Edit</a>
                             </c:if>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
-            <!-- List Card -->
-            <div class="col-md-8">
-                <div class="card shadow-sm border-0">
-                    <div class="card-body p-0">
-                        <table class="table table-hover mb-0 align-middle">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="ps-4">ID</th>
-                                    <th>Name</th>
-                                    <th>Status</th>
-                                    <th class="text-end pe-4">Actions</th>
+            <!-- List Space (8 cols) -->
+            <div class="lg:col-span-8 flex flex-col gap-6">
+                <!-- Count Card -->
+                <div class="glass p-6 rounded-3xl flex items-center justify-between bg-white/40">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-coffee-50 p-3 rounded-2xl text-coffee-700">
+                            <i class="bi bi-collection text-2xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-bold text-mocha/30 uppercase tracking-widest">Total Active</div>
+                            <div class="text-2xl font-bold text-mocha">0<c:out value="${categories.size()}"/> Groups</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Container -->
+                <div class="glass overflow-hidden rounded-[2rem]">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-white/50 border-b border-coffee-50">
+                                    <th class="px-8 py-5 text-[10px] font-bold text-mocha/30 uppercase tracking-widest">Identifier</th>
+                                    <th class="px-6 py-5 text-[10px] font-bold text-mocha/30 uppercase tracking-widest">Label</th>
+                                    <th class="px-6 py-5 text-[10px] font-bold text-mocha/30 uppercase tracking-widest text-center">Status</th>
+                                    <th class="px-8 py-5 text-[10px] font-bold text-mocha/30 uppercase tracking-widest text-right">Operations</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="divide-y divide-coffee-50/50">
                                 <c:forEach var="cat" items="${categories}">
-                                    <tr>
-                                        <td class="ps-4 text-muted">${cat.id}</td>
-                                        <td><span class="fw-medium">${cat.name}</span></td>
-                                        <td>
-                                            <span class="badge ${cat.active ? 'bg-success' : 'bg-secondary'} rounded-pill">
-                                                ${cat.active ? 'Active' : 'Inactive'}
+                                    <tr class="group hover:bg-white/30 transition-colors">
+                                        <td class="px-8 py-6">
+                                            <span class="bg-coffee-50 text-coffee-700 text-[10px] font-black px-2 py-1 rounded-md">ID-${cat.id}</span>
+                                        </td>
+                                        <td class="px-6 py-6">
+                                            <div class="font-bold text-mocha">${cat.name}</div>
+                                            <div class="text-[10px] font-medium text-mocha/30 italic">Collection group</div>
+                                        </td>
+                                        <td class="px-6 py-6 text-center">
+                                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold border ${cat.active ? 'bg-green-50 text-green-600 border-green-100' : 'bg-red-50 text-red-600 border-red-100'}">
+                                                <span class="w-1 h-1 rounded-full ${cat.active ? 'bg-green-600' : 'bg-red-600'}"></span>
+                                                ${cat.active ? 'ACTIVE' : 'DISABLED'}
                                             </span>
                                         </td>
-                                        <td class="text-end pe-4">
-                                            <a href="?id=${cat.id}" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></a>
-                                            <a href="${pageContext.request.contextPath}/manager/categories/delete?id=${cat.id}" 
-                                               class="btn btn-sm btn-outline-danger"
-                                               onclick="return confirm('Delete this category?')"><i class="bi bi-trash"></i></a>
+                                        <td class="px-8 py-6 text-right">
+                                            <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <a href="?id=${cat.id}" class="w-9 h-9 flex items-center justify-center rounded-xl bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>
+                                                <a href="${pageContext.request.contextPath}/manager/categories/delete?id=${cat.id}" 
+                                                   onclick="return confirm('Archive this category?')"
+                                                   class="w-9 h-9 flex items-center justify-center rounded-xl bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-all shadow-sm">
+                                                    <i class="bi bi-trash3"></i>
+                                                </a>
+                                            </div>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -70,7 +107,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <jsp:include page="../common/footer.jsp" />
 </body>
