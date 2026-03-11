@@ -1,0 +1,29 @@
+package chez1s.assignment.controller;
+
+import chez1s.assignment.service.BillService;
+import chez1s.assignment.util.AuthUtil;
+import chez1s.assignment.util.ParamUtil;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/manager/bills")
+public class BillController extends HttpServlet {
+    private final BillService billService = new BillService();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer userId = AuthUtil.getUser(req).getId();
+        req.setAttribute("bills", billService.getUserBills(userId));
+        
+        Integer detailId = ParamUtil.getInt(req, "id");
+        if (detailId > 0) {
+            req.setAttribute("bill", billService.getBill(detailId, userId));
+        }
+        
+        req.getRequestDispatcher("/views/bills/list.jsp").forward(req, resp);
+    }
+}

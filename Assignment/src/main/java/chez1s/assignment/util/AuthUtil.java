@@ -1,0 +1,35 @@
+package chez1s.assignment.util;
+
+import chez1s.assignment.entity.User;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+public final class AuthUtil {
+    public static final String SESSION_USER = "user";
+
+    public static void setUser(HttpServletRequest request, User user) {
+        HttpSession session = request.getSession();
+        session.setAttribute(SESSION_USER, user);
+    }
+
+    public static User getUser(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        return (session != null) ? (User) session.getAttribute(SESSION_USER) : null;
+    }
+
+    public static boolean isAuthenticated(HttpServletRequest request) {
+        return getUser(request) != null;
+    }
+
+    public static boolean isManager(HttpServletRequest request) {
+        User u = getUser(request);
+        return u != null && u.isRole();
+    }
+
+    public static void clear(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.removeAttribute(SESSION_USER);
+        }
+    }
+}

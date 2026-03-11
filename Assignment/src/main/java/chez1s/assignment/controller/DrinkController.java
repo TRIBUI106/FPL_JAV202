@@ -1,0 +1,62 @@
+package chez1s.assignment.controller;
+
+import chez1s.assignment.entity.Drink;
+import chez1s.assignment.service.CategoryService;
+import chez1s.assignment.service.DrinkService;
+import chez1s.assignment.util.FileUtil;
+import chez1s.assignment.util.ParamUtil;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet({"/manager/drinks", "/manager/drinks/form", "/manager/drinks/save", "/manager/drinks/delete"})
+@MultipartConfig
+public class DrinkController extends HttpServlet {
+    private final DrinkService drinkService = new DrinkService();
+    private final CategoryService categoryService = new CategoryService();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String uri = req.getRequestURI();
+        if (uri.contains("/delete")) {
+            drinkService.deleteDrink(ParamUtil.getInt(req, "id"));
+            resp.sendRedirect(req.getContextPath() + "/manager/drinks");
+            return;
+        }
+        
+        if (uri.contains("/form")) {
+            int id = ParamUtil.getInt(req, "id");
+            if (id > 0) req.setAttribute("drink", drinkService.getDrinkById(id));
+            req.setAttribute("categories", categoryService.getAllCategories());
+            req.getRequestDispatcher("/views/drink/drink-form.jsp").forward(req, resp);
+            return;
+        }
+
+        req.setAttribute("drinks", drinkService.getAllDrinks());
+        req.getRequestDispatcher("/views/drink/manager-list.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = ParamUtil.getInt(req, "id");
+        Drink drink = (id > 0) ? drinkService.getDrinkById(id) : new Drink();
+        
+        drink.setName(ParamUtil.getString(req, "name"));
+        drink.setDescription(ParamUtil.getString(req, "description"));
+        drink.setPrice(ParamUtil.getInt(req, "price"));
+        drink.setActive(ParamUtil.getInt(req, "active") == 1);
+        drink.setCategory(categoryService.getCategoryById(ParamUtil.getInt(req, "categoryId")));
+        
+        String image = FileUtil.upload(req, "image");
+        if (!image.isEmpty()) drink.setImage(image);
+
+        if (id > 0) drinkService.updateDrink(drink);
+        else drinkService.createDrink(drink);
+        
+        resp.sendRedirect(req.getContextPath() + "/manager/drinks");
+    }
+}
