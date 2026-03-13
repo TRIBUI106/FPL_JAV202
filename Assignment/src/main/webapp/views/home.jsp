@@ -5,66 +5,104 @@
 <head>
     <title>PolyCoffee - Premium Brews</title>
 </head>
-<body class="bg-cream font-sans min-h-full flex flex-column">
+<body class="bg-[#FCF9F3] font-sans min-h-full flex flex-col overflow-x-hidden selection:bg-coffee-200 selection:text-coffee-900">
+
+    <!-- Background Decoration -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="blob w-[600px] h-[600px] bg-coffee-300 -top-20 -left-20"></div>
+        <div class="blob w-[500px] h-[500px] bg-caramel/40 bottom-0 -right-20 animate-morph" style="animation-delay: -2s"></div>
+        <div class="blob w-[400px] h-[400px] bg-latte/30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-morph" style="animation-duration: 12s"></div>
+    </div>
 
     <jsp:include page="common/header.jsp" />
 
     <main class="flex-grow">
         <!-- Hero Section -->
-        <section class="max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
-            <div class="inline-flex items-center gap-2 bg-white/50 px-4 py-2 rounded-full text-coffee-700 text-sm font-bold mb-8 shadow-sm">
-                <span class="flex h-2 w-2 rounded-full bg-coffee-700 animate-pulse"></span>
-                PREMIUM COFFEE EXPERIENCE
+        <section class="max-w-7xl mx-auto px-6 py-24 md:py-32 text-center relative">
+            <div class="inline-flex items-center gap-3 bg-white/60 backdrop-blur-md px-6 py-2.5 rounded-full text-coffee-700 text-sm font-bold mb-10 shadow-lg border border-white/50 transition-all hover:scale-105 cursor-default">
+                <span class="flex h-3 w-3 rounded-full bg-coffee-600 animate-pulse"></span>
+                <span class="tracking-widest uppercase">The Art of Fine Brewing</span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl font-bold text-mocha mb-8 leading-tight">
-                Fuel Your Passion With <br/>
-                <span class="text-coffee-700">Perfectly Brewed</span> Coffee.
+            <h1 class="text-6xl md:text-8xl font-black text-mocha mb-10 leading-[1.1] text-display">
+                Pure Essence in <br/>
+                <span class="text-coffee-700 relative inline-block">
+                    Every Sip.
+                    <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 20" preserveAspectRatio="none">
+                        <path d="M0 10 Q 50 20 100 10" stroke="#6F4E37" stroke-width="2" fill="none" />
+                    </svg>
+                </span>
             </h1>
             
-            <p class="text-mocha/60 text-lg md:text-xl max-w-2xl mx-auto mb-12">
-                Elevate your daily routine with our artisanal coffee management system. 
-                Fast, reliable, and designed for coffee lovers.
+            <p class="text-mocha/70 text-xl md:text-2xl max-w-3xl mx-auto mb-16 leading-relaxed font-light">
+                Discover a symphony of flavors crafted with passion. 
+                Our artisanal management system brings speed to your service and soul to your coffee.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <c:choose>
                     <c:when test="${empty sessionScope.user}">
-                        <a href="${pageContext.request.contextPath}/auth/login" class="btn-coffee text-lg px-10 py-4">Explore Menu</a>
+                        <a href="${pageContext.request.contextPath}/auth/login" class="btn-coffee text-xl">
+                            Explore Collections <i class="bi bi-arrow-right"></i>
+                        </a>
                     </c:when>
                     <c:otherwise>
-                        <a href="${pageContext.request.contextPath}/employee/pos" class="btn-coffee text-lg px-10 py-4">Go to POS Dashboard</a>
+                        <a href="${pageContext.request.contextPath}/employee/pos" class="btn-coffee text-xl">
+                            Go to POS Dashboard <i class="bi bi-speedometer2"></i>
+                        </a>
                     </c:otherwise>
                 </c:choose>
-                <a href="#features" class="btn-soft text-lg px-10 py-4">Our Features</a>
+                <a href="#features" class="btn-soft text-xl">
+                    View Experience <i class="bi bi-play-circle"></i>
+                </a>
             </div>
         </section>
 
         <!-- Stats Section -->
-        <section id="features" class="max-w-7xl mx-auto px-4 py-20">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass p-8 rounded-coffee transition-transform hover:-translate-y-2 duration-300">
-                    <div class="w-14 h-14 bg-coffee-50 rounded-2xl flex items-center justify-center text-coffee-700 text-2xl mb-6">
-                        <i class="bi bi-lightning-charge-fill"></i>
+        <section id="features" class="max-w-7xl mx-auto px-6 py-32">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold text-mocha mb-4 text-display">The PolyCoffee Standard</h2>
+                <p class="text-mocha/60 max-w-xl mx-auto">Luxury performance meets intuitive design for the modern cafe.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Feature 1 -->
+                <div class="liquid-glass p-10 rounded-coffee transition-all duration-500 hover:-translate-y-4 group cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-coffee-100/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-20 h-20 bg-coffee-700 rounded-3xl flex items-center justify-center text-white text-3xl mb-8 shadow-2xl group-hover:rotate-[10deg] transition-transform duration-500">
+                        <i class="bi bi-lightning-charge"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mocha mb-3">Ultra-Fast POS</h3>
-                    <p class="text-mocha/60">Speed matters. Process orders in seconds with our optimized interface designed for rush hours.</p>
+                    <h3 class="text-2xl font-bold text-mocha mb-4 text-display">Instant Flow</h3>
+                    <p class="text-mocha/70 leading-relaxed">Velocity without compromise. Process complex orders with fluid grace even during peak hours.</p>
+                    <div class="mt-8 flex items-center gap-2 text-coffee-700 font-bold opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                        Learn more <i class="bi bi-chevron-right text-sm"></i>
+                    </div>
                 </div>
 
-                <div class="glass p-8 rounded-coffee transition-transform hover:-translate-y-2 duration-300">
-                    <div class="w-14 h-14 bg-coffee-50 rounded-2xl flex items-center justify-center text-coffee-700 text-2xl mb-6">
-                        <i class="bi bi-bar-chart-fill"></i>
+                <!-- Feature 2 -->
+                <div class="liquid-glass p-10 rounded-coffee transition-all duration-500 hover:-translate-y-4 group cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-caramel/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-20 h-20 bg-mocha rounded-3xl flex items-center justify-center text-white text-3xl mb-8 shadow-2xl group-hover:rotate-[10deg] transition-transform duration-500">
+                        <i class="bi bi-graph-up-arrow"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mocha mb-3">Live Analytics</h3>
-                    <p class="text-mocha/60">Data is power. Track your performance, best sellers, and revenue trends with elegant visual reports.</p>
+                    <h3 class="text-2xl font-bold text-mocha mb-4 text-display">Pure Insight</h3>
+                    <p class="text-mocha/70 leading-relaxed">Crystal clear analytics. Visualize your cafe's soul through elegant data storytelling and live reports.</p>
+                    <div class="mt-8 flex items-center gap-2 text-coffee-700 font-bold opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                        Learn more <i class="bi bi-chevron-right text-sm"></i>
+                    </div>
                 </div>
 
-                <div class="glass p-8 rounded-coffee transition-transform hover:-translate-y-2 duration-300">
-                    <div class="w-14 h-14 bg-coffee-50 rounded-2xl flex items-center justify-center text-coffee-700 text-2xl mb-6">
+                <!-- Feature 3 -->
+                <div class="liquid-glass p-10 rounded-coffee transition-all duration-500 hover:-translate-y-4 group cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-br from-latte/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="w-20 h-20 bg-coffee-600 rounded-3xl flex items-center justify-center text-white text-3xl mb-8 shadow-2xl group-hover:rotate-[10deg] transition-transform duration-500">
                         <i class="bi bi-shield-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-mocha mb-3">Secure Assets</h3>
-                    <p class="text-mocha/60">Protected catalog. Manage your drinks, staff, and categories with a secure role-based permissions system.</p>
+                    <h3 class="text-2xl font-bold text-mocha mb-4 text-display">Secure Craft</h3>
+                    <p class="text-mocha/70 leading-relaxed">Fortified management. Protect your recipes and staff data with sophisticated role-based security layers.</p>
+                    <div class="mt-8 flex items-center gap-2 text-coffee-700 font-bold opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                        Learn more <i class="bi bi-chevron-right text-sm"></i>
+                    </div>
                 </div>
             </div>
         </section>
