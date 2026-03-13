@@ -1,42 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html class="h-full">
 <head>
     <title>Login - PolyCoffee</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #f8f9fa; }
-        .login-card { max-width: 400px; margin-top: 100px; border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .btn-primary { border-radius: 10px; padding: 12px; font-weight: 600; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { cream: '#FDF7E4', coffee: { 700: '#6F4E37' }, mocha: '#2D2424' },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="container d-flex justify-content-center">
-        <div class="card login-card p-4">
-            <div class="text-center mb-4">
-                <h2 class="fw-bold">PolyCoffee</h2>
-                <p class="text-muted">Sign in to your account</p>
+<body class="bg-cream font-sans h-full flex items-center justify-center px-4 relative overflow-hidden">
+    
+    <!-- Background Decor -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-coffee-700/5 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-coffee-700/5 rounded-full blur-3xl"></div>
+
+    <div class="w-full max-w-md relative">
+        <div class="bg-white/70 backdrop-blur-xl border border-white/20 p-10 rounded-[2rem] shadow-2xl">
+            <div class="text-center mb-10">
+                <div class="inline-flex bg-coffee-700 p-4 rounded-2xl mb-6 shadow-xl shadow-coffee-700/20">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21l-8-4.5v-9L12 3l8 4.5v9z" />
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-mocha mb-2">Welcome Back</h1>
+                <p class="text-mocha/40 font-medium">Please enter your credentials</p>
             </div>
             
             <c:if test="${not empty message}">
-                <div class="alert alert-danger mb-3">${message}</div>
+                <div class="bg-red-50 text-red-500 p-4 rounded-2xl text-sm font-bold mb-6 border border-red-100 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    ${message}
+                </div>
             </c:if>
 
-            <form action="${pageContext.request.contextPath}/auth/login" method="post">
-                <div class="mb-3">
-                    <label class="form-label small fw-bold">Email address</label>
-                    <input type="email" name="email" class="form-control" placeholder="staff@polycoffee.com" required>
+            <form action="${pageContext.request.contextPath}/auth/login" method="post" class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-mocha/40 uppercase tracking-widest mb-2 pl-1">Email Address</label>
+                    <input type="email" name="email" required placeholder="name@polycoffee.com"
+                           class="w-full bg-coffee-50/50 border-0 px-5 py-4 rounded-2xl focus:ring-2 focus:ring-coffee-700/20 outline-none transition-all placeholder:text-mocha/20 text-mocha font-medium">
                 </div>
-                <div class="mb-4">
-                    <label class="form-label small fw-bold">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                
+                <div>
+                    <label class="block text-xs font-bold text-mocha/40 uppercase tracking-widest mb-2 pl-1">Password</label>
+                    <input type="password" name="password" required placeholder="••••••••"
+                           class="w-full bg-coffee-50/50 border-0 px-5 py-4 rounded-2xl focus:ring-2 focus:ring-coffee-700/20 outline-none transition-all placeholder:text-mocha/20 text-mocha font-medium">
                 </div>
-                <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+
+                <button type="submit" 
+                        class="w-full bg-coffee-700 text-white rounded-2xl py-4 font-bold text-lg shadow-xl shadow-coffee-700/30 hover:bg-mocha hover:-translate-y-1 transition-all active:scale-95">
+                    Sign In
+                </button>
             </form>
             
-            <div class="text-center">
-                <a href="${pageContext.request.contextPath}/" class="text-decoration-none small">← Back to home</a>
+            <div class="mt-10 text-center">
+                <a href="${pageContext.request.contextPath}/" class="text-mocha/30 hover:text-coffee-700 text-sm font-bold transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Home
+                </a>
             </div>
         </div>
     </div>

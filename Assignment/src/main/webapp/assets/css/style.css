@@ -1,0 +1,159 @@
+:root {
+    --primary-coffee: #6F4E37;
+    --secondary-coffee: #A67B5B;
+    --accent-caramel: #ECB176;
+    --bg-cream: #FDF7E4;
+    --text-mocha: #2D2424;
+    --white-soft: #FFFFFF;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --border-soft: rgba(111, 78, 55, 0.1);
+    --shadow-soft: 0 10px 30px rgba(45, 36, 36, 0.05);
+}
+
+body {
+    background-color: var(--bg-cream);
+    color: var(--text-mocha);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-coffee);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-coffee);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-soft);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(45, 36, 36, 0.1);
+}
+
+/* Premium Buttons */
+.btn-coffee {
+    background-color: var(--primary-coffee);
+    color: var(--white-soft);
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-coffee:hover {
+    background-color: var(--secondary-coffee);
+    color: var(--white-soft);
+    transform: scale(1.02);
+}
+
+.btn-soft {
+    background-color: var(--white-soft);
+    color: var(--primary-coffee);
+    border: 1px solid var(--border-soft);
+    border-radius: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-soft:hover {
+    background-color: var(--bg-cream);
+    border-color: var(--primary-coffee);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+    color: var(--text-mocha);
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-coffee), var(--accent-caramel));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Navbar */
+.navbar-custom {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.nav-link {
+    color: var(--text-mocha) !important;
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-coffee) !important;
+}
+
+.active-nav {
+    color: var(--primary-coffee) !important;
+    font-weight: 700;
+}
+
+/* POS Specific */
+.menu-item-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.menu-item-img {
+    height: 160px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item-card:hover .menu-item-img {
+    transform: scale(1.1);
+}
+
+.cart-sidebar {
+    background: var(--white-soft);
+    border-left: 1px solid var(--border-soft);
+}
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

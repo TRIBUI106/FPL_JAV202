@@ -2,46 +2,59 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
 <!DOCTYPE html>
-<html>
+<html class="h-full">
 <head>
-    <title>Sales History - PolyCoffee</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Sales Audit - PolyCoffee</title>
 </head>
-<body class="bg-light">
+<body class="bg-cream font-sans min-h-full">
     <jsp:include page="../common/header.jsp" />
 
-    <div class="container py-4">
-        <h2 class="mb-4 fw-bold">Sales History</h2>
-        
-        <div class="row g-4">
-            <!-- List Side -->
-            <div class="col-md-${not empty bill ? '7' : '12'}">
-                <div class="card shadow-sm border-0">
-                    <div class="card-body p-0">
-                        <table class="table table-hover mb-0 align-middle">
-                            <thead class="bg-light">
-                                <tr>
-                                    <th class="ps-4">Code</th>
-                                    <th>Date</th>
-                                    <th>Total</th>
-                                    <th>Status</th>
-                                    <th class="text-end pe-4">Details</th>
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <div class="mb-16">
+            <h1 class="text-4xl font-black text-mocha mb-2">Transaction Ledger</h1>
+            <p class="text-latte font-bold text-xs tracking-widest uppercase">System Sales Audit & History</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-10 items-start">
+            
+            <!-- Ledger List -->
+            <div class="flex-grow w-full">
+                <div class="glass overflow-hidden rounded-[2.5rem]">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left order-collapse">
+                            <thead>
+                                <tr class="bg-white/50 border-b border-coffee-50">
+                                    <th class="px-10 py-6 text-[10px] font-black text-mocha/30 uppercase tracking-widest">Reference</th>
+                                    <th class="px-6 py-6 text-[10px] font-black text-mocha/30 uppercase tracking-widest">Timepoint</th>
+                                    <th class="px-6 py-6 text-[10px] font-black text-mocha/30 uppercase tracking-widest">Amount</th>
+                                    <th class="px-6 py-6 text-[10px] font-black text-mocha/30 uppercase tracking-widest text-center">Status</th>
+                                    <th class="px-10 py-6 text-[10px] font-black text-mocha/30 uppercase tracking-widest text-right">Audit</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="divide-y divide-coffee-50/50">
                                 <c:forEach var="b" items="${bills}">
-                                    <tr class="${bill.id == b.id ? 'table-primary-subtle' : ''}">
-                                        <td class="ps-4 fw-bold">${b.code}</td>
-                                        <td><fmt:formatDate value="${b.createdAt}" pattern="yyyy-MM-dd HH:mm"/></td>
-                                        <td class="fw-bold"><fmt:formatNumber value="${b.total}" pattern="#,###"/> đ</td>
-                                        <td>
-                                            <span class="badge rounded-pill 
-                                                ${b.status == 'FINISHED' ? 'bg-success' : (b.status == 'CANCELLED' ? 'bg-danger' : 'bg-warning')}">
+                                    <tr class="group hover:bg-white/40 transition-colors ${bill.id == b.id ? 'bg-coffee-50/50' : ''}">
+                                        <td class="px-10 py-6">
+                                            <div class="bg-mocha text-white text-[10px] font-black px-2 py-1 rounded-md inline-block mb-1">${b.code}</div>
+                                            <div class="text-xs font-bold text-latte uppercase tracking-tighter italic">Secured Ledger</div>
+                                        </td>
+                                        <td class="px-6 py-6">
+                                            <div class="text-sm font-bold text-mocha capitalize"><fmt:formatDate value="${b.createdAt}" pattern="MMMM dd, yyyy"/></div>
+                                            <div class="text-[10px] font-medium text-mocha/30 italic"><fmt:formatDate value="${b.createdAt}" pattern="hh:mm a"/></div>
+                                        </td>
+                                        <td class="px-6 py-6">
+                                            <div class="font-black text-mocha text-lg"><fmt:formatNumber value="${b.total}" pattern="#,###"/> <span class="text-[10px] opacity-20">đ</span></div>
+                                        </td>
+                                        <td class="px-6 py-6 text-center">
+                                            <span class="inline-flex py-1 px-4 rounded-full text-[10px] font-black border tracking-widest
+                                                ${b.status == 'FINISHED' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : (b.status == 'CANCELLED' ? 'bg-red-50 text-red-600 border-red-100' : 'bg-caramel/10 text-caramel border-caramel/20')}">
                                                 ${b.status}
                                             </span>
                                         </td>
-                                        <td class="text-end pe-4">
-                                            <a href="?id=${b.id}" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></a>
+                                        <td class="px-10 py-6 text-right">
+                                            <a href="?id=${b.id}" class="w-10 h-10 inline-flex items-center justify-center rounded-2xl bg-white text-mocha hover:bg-coffee-700 hover:text-white shadow-sm border border-coffee-50 transition-all">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -51,62 +64,75 @@
                 </div>
             </div>
 
-            <!-- Detail Side (Conditional) -->
+            <!-- Detail Sidebar -->
             <c:if test="${not empty bill}">
-                <div class="col-md-5">
-                    <div class="card shadow-sm border-0 sticky-top" style="top: 20px;">
-                        <div class="card-header bg-primary text-white py-3 border-0">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0 fw-bold">Bill Details</h5>
-                                <a href="${pageContext.request.contextPath}/manager/bills" class="btn-close btn-close-white"></a>
+                <div class="lg:w-[450px] sticky top-32 shrink-0">
+                    <div class="glass p-8 rounded-[3rem] bg-white border-2 border-coffee-700/5 shadow-2xl shadow-coffee-700/10">
+                        <div class="flex items-center justify-between mb-8 pb-6 border-b border-coffee-50">
+                            <div>
+                                <h2 class="text-xl font-black text-mocha">Audit View</h2>
+                                <p class="text-[10px] font-bold text-latte tracking-[0.2em] uppercase">Detailed Ledger Recipt</p>
                             </div>
+                            <a href="${pageContext.request.contextPath}/manager/bills" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 text-mocha/30 hover:text-red-500 transition-colors">
+                                <i class="bi bi-x-lg"></i>
+                            </a>
                         </div>
-                        <div class="card-body">
-                            <div class="mb-4">
-                                <div class="small text-muted mb-1">REFERENCE CODE</div>
-                                <div class="fw-bold text-dark fs-5">${bill.code}</div>
+
+                        <div class="space-y-6 mb-10">
+                            <c:forEach var="item" items="${bill.billDetails}">
+                                <div class="flex items-center justify-between group">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-10 h-10 bg-coffee-50 rounded-xl flex items-center justify-center text-coffee-700 font-black text-xs">
+                                            ${item.quantity}<span class="text-[8px] ml-0.5">X</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-mocha text-sm">${item.drink.name}</h4>
+                                            <p class="text-[10px] text-mocha/30 font-bold uppercase tracking-tighter italic">Unit Price: <fmt:formatNumber value="${item.price}" pattern="#,###"/> đ</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-mocha font-black text-sm">
+                                        <fmt:formatNumber value="${item.price * item.quantity}" pattern="#,###"/> <span class="text-[8px] opacity-20 italic">đ</span>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+
+                        <div class="bg-coffee-50/50 p-8 rounded-[2rem] space-y-4">
+                            <div class="flex justify-between text-[10px] font-black tracking-widest uppercase mb-2">
+                                <span class="text-mocha/30">MetaData</span>
+                                <span class="text-coffee-700">Audit Proof</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-mocha/40 font-bold">Transaction Status</span>
+                                <span class="font-black text-emerald-600">${bill.status}</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-mocha/40 font-bold">Authenticated User</span>
+                                <span class="font-black text-mocha italic">${bill.user.fullName}</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-mocha/40 font-bold">System Ref</span>
+                                <span class="font-black text-mocha italic">#0${bill.id}</span>
                             </div>
                             
-                            <table class="table table-sm table-borderless align-middle mb-4">
-                                <thead class="border-bottom small text-muted fw-bold">
-                                    <tr>
-                                        <th>ITEM</th>
-                                        <th class="text-center">QTY</th>
-                                        <th class="text-end">SUBTOTAL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="item" items="${bill.billDetails}">
-                                        <tr>
-                                            <td>${item.drink.name}</td>
-                                            <td class="text-center">${item.quantity}</td>
-                                            <td class="text-end fw-bold"><fmt:formatNumber value="${item.price * item.quantity}" pattern="#,###"/></td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-
-                            <div class="bg-light p-3 rounded-3">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Status</span>
-                                    <span class="fw-bold text-primary">${bill.status}</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Served By</span>
-                                    <span class="fw-bold">${bill.user.fullName}</span>
-                                </div>
-                                <hr>
-                                <div class="d-flex justify-content-between">
-                                    <span class="fs-5 fw-bold">Grand Total</span>
-                                    <span class="fs-4 fw-bold text-dark"><fmt:formatNumber value="${bill.total}" pattern="#,###"/> đ</span>
-                                </div>
+                            <hr class="border-coffee-100 my-4">
+                            
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-black text-mocha">Total Value</span>
+                                <span class="text-2xl font-black text-coffee-700"><fmt:formatNumber value="${bill.total}" pattern="#,###"/> <span class="text-xs italic opacity-20">đ</span></span>
                             </div>
                         </div>
+
+                        <button onclick="window.print()" class="w-full mt-8 btn-soft py-4 flex items-center justify-center gap-2 group">
+                            <i class="bi bi-printer text-latte group-hover:scale-110 transition-transform"></i>
+                            Export Proof (PDF)
+                        </button>
                     </div>
                 </div>
             </c:if>
+
         </div>
-    </div>
+    </main>
 
     <jsp:include page="../common/footer.jsp" />
 </body>
