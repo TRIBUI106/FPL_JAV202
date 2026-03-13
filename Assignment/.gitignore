@@ -40,3 +40,6 @@ build/
 
 ### Uploads ###
 uploads/
+
+### Agent skills ###
+.agent/
