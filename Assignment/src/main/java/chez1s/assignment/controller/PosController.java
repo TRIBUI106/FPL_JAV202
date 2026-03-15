@@ -4,6 +4,7 @@ import chez1s.assignment.entity.Bill;
 import chez1s.assignment.entity.Drink;
 import chez1s.assignment.entity.User;
 import chez1s.assignment.service.BillService;
+import chez1s.assignment.service.CategoryService;
 import chez1s.assignment.service.DrinkService;
 import chez1s.assignment.util.AuthUtil;
 import chez1s.assignment.util.ParamUtil;
@@ -19,6 +20,7 @@ import java.util.List;
 public class PosController extends HttpServlet {
     private final BillService billService = new BillService();
     private final DrinkService drinkService = new DrinkService();
+    private final CategoryService categoryService = new CategoryService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -52,7 +54,9 @@ public class PosController extends HttpServlet {
 
         // Default: View POS
         req.setAttribute("drinks", drinkService.getActiveDrinks());
-        if (billId > 0) {
+        req.setAttribute("categories", categoryService.getAllCategories());
+        
+        if (user != null && billId > 0) {
             Bill currentBill = billService.getBill(billId, user.getId());
             req.setAttribute("currentBill", currentBill);
         }

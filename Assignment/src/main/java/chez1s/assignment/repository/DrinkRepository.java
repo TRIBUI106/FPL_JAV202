@@ -13,7 +13,7 @@ public class DrinkRepository extends BaseRepository<Drink, Integer> {
     public List<Drink> findByActive(boolean active) {
         EntityManager em = JpaUtil.getEntityManager();
         try {
-            return em.createQuery("SELECT d FROM Drink d WHERE d.active = :active", Drink.class)
+            return em.createQuery("SELECT d FROM Drink d JOIN FETCH d.category WHERE d.active = :active", Drink.class)
                      .setParameter("active", active)
                      .getResultList();
         } finally {
