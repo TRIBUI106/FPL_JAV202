@@ -76,6 +76,13 @@
             <version>4.0.5</version>
         </dependency>
 
+        <!-- MinIO Client -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.7</version>
+        </dependency>
+
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -105,6 +112,10 @@
                 <configuration>
                     <source>21</source>
                     <target>21</target>
+                    <!-- Allow Lombok to work with Java 21+ by passing compiler args -->
+                    <compilerArgs>
+                        <arg>-J-DJavac.permit=true</arg>
+                    </compilerArgs>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
