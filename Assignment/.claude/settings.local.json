@@ -25,7 +25,9 @@
       "Bash(powershell:*)",
       "Bash(docker-compose up:*)",
       "Bash(docker exec:*)",
-      "Bash(./mvnw -q test -Dtest='DbMigrationTest,FixDbTest')"
+      "Bash(./mvnw -q test -Dtest='DbMigrationTest,FixDbTest')",
+      "Bash(ls D:/Code/FPL_JAV202/Assignment/target/surefire-reports/*.txt)",
+      "Bash(grep -E \"^\\(Tests run|.+\\\\\\(\\\\\\)  Time\\)\" *.txt)"
     ]
   }
 }
