@@ -61,20 +61,6 @@
                 </p>
             </div>
 
-            <!-- Stats Real Data -->
-            <div class="relative z-10 grid grid-cols-2 gap-6 mt-12 pb-8">
-                <div class="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:-translate-y-1 transition-transform duration-300">
-                    <div class="text-amber-500 mb-2"><i class="bi bi-receipt text-2xl"></i></div>
-                    <p class="text-4xl font-serif-majestic text-white mb-1"><fmt:formatNumber value="${totalBills}" pattern="#,###"/></p>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Hóa đơn Kịp Thời</p>
-                </div>
-                <div class="bg-white/5 border border-white/10 p-6 rounded-[2rem] hover:-translate-y-1 transition-transform duration-300">
-                    <div class="text-amber-400 mb-2"><i class="bi bi-graph-up-arrow text-2xl"></i></div>
-                    <p class="text-4xl font-serif-majestic text-white mb-1"><fmt:formatNumber value="${totalRevenue}" pattern="#,###"/><span class="text-xl ml-1 text-amber-400/60 font-bold">VNĐ</span></p>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">DOANH THU HỆ THỐNG</p>
-                </div>
-            </div>
-
             <!-- Decorative Pattern -->
             <div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(circle at 100% 100%, #f59e0b 0%, transparent 40%); mix-blend-mode: screen;"></div>
         </div>

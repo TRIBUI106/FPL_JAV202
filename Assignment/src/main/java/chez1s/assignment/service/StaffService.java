@@ -8,13 +8,16 @@ public class StaffService {
     private final UserRepository userRepository = new UserRepository();
 
     public List<User> getAllStaff() {
-        return userRepository.findByRole(false);
+        return userRepository.findAll();
     }
 
     public void createStaff(User user) {
-        user.setRole(false);
         user.setActive(true);
         userRepository.create(user);
+    }
+
+    public void deleteStaff(Integer id) {
+        userRepository.deleteWithBillDetachment(id);
     }
 
     public void updateStaff(User user) {

@@ -53,6 +53,8 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
+                        <fmt:message key="admin.drink.status.selling" var="statusSellingMsg"/>
+                        <fmt:message key="admin.drink.status.suspended" var="statusSuspendedMsg"/>
                         <c:forEach var="d" items="${drinks}">
                             <tr class="hover:bg-gray-50 transition-colors group">
                                 <td class="px-8 py-5">
@@ -87,7 +89,7 @@
                                 <td class="px-6 py-5 align-middle text-center">
                                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${d.active ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-gray-50 text-gray-500 border border-gray-200'}">
                                         <span class="w-1.5 h-1.5 rounded-full ${d.active ? 'bg-green-500' : 'bg-gray-400'}"></span>
-                                        ${d.active ? '<fmt:message key="admin.drink.status.selling"/>' : '<fmt:message key="admin.drink.status.suspended"/>'}
+                                        ${d.active ? statusSellingMsg : statusSuspendedMsg}
                                     </span>
                                 </td>
                                 <td class="px-8 py-5 align-middle text-right">

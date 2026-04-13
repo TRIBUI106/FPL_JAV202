@@ -2,8 +2,10 @@ package chez1s.assignment.db;
 
 import chez1s.assignment.util.JpaUtil;
 import jakarta.persistence.EntityManager;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+@Disabled("One-off migration script, not a unit test. Hits real DB — run manually if needed.")
 public class DbMigrationTest {
     @Test
     public void runMigration() {

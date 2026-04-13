@@ -87,6 +87,8 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-100">
+                                <fmt:message key="admin.category.status.show" var="catStatusShowMsg"/>
+                                <fmt:message key="admin.category.status.hide" var="catStatusHideMsg"/>
                                 <c:forEach var="cat" items="${categories}">
                                     <tr class="hover:bg-gray-50 transition-colors group">
                                         <td class="px-6 py-4 align-middle">
@@ -98,11 +100,11 @@
                                         <td class="px-6 py-4 align-middle text-center">
                                             <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold border ${cat.active ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}">
                                                 <span class="w-1.5 h-1.5 rounded-full ${cat.active ? 'bg-green-500' : 'bg-red-500'}"></span>
-                                                ${cat.active ? '<fmt:message key="admin.category.status.show"/>' : '<fmt:message key="admin.category.status.hide"/>'}
+                                                ${cat.active ? catStatusShowMsg : catStatusHideMsg}
                                             </span>
                                         </td>
                                         <td class="px-6 py-4 align-middle text-right w-24">
-                                            <div class="flex items-center justify-end gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                                            <div class="flex items-center justify-end gap-2">
                                                 <a href="?id=${cat.id}" class="w-8 h-8 flex items-center justify-center rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all shadow-sm">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>
@@ -131,7 +133,7 @@
                                 <div>
                                     <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold border ${cat.active ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}">
                                         <span class="w-1 h-1 rounded-full ${cat.active ? 'bg-green-500' : 'bg-red-500'}"></span>
-                                        ${cat.active ? '<fmt:message key="admin.category.status.show"/>' : '<fmt:message key="admin.category.status.hide"/>'}
+                                        ${cat.active ? catStatusShowMsg : catStatusHideMsg}
                                     </span>
                                 </div>
                             </div>

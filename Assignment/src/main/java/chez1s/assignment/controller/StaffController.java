@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet({"/manager/staff", "/manager/staff/form", "/manager/staff/save", "/manager/staff/status"})
+@WebServlet({"/manager/staff", "/manager/staff/form", "/manager/staff/save", "/manager/staff/status", "/manager/staff/delete"})
 public class StaffController extends HttpServlet {
     private final StaffService staffService = new StaffService();
 
@@ -20,6 +20,22 @@ public class StaffController extends HttpServlet {
         
         if (uri.contains("/status")) {
             staffService.updateStatus(ParamUtil.getInt(req, "id"), ParamUtil.getInt(req, "active") == 1);
+            resp.sendRedirect(req.getContextPath() + "/employee/pos?tab=users");
+            return;
+        }
+
+        if (uri.contains("/delete")) {
+            int id = ParamUtil.getInt(req, "id");
+            chez1s.assignment.entity.User current = chez1s.assignment.util.AuthUtil.getUser(req);
+            if (current != null && current.getId() != null && current.getId().equals(id)) {
+                req.getSession().setAttribute("error", "Không thể xoá tài khoản đang đăng nhập.");
+            } else {
+                try {
+                    staffService.deleteStaff(id);
+                } catch (Exception e) {
+                    req.getSession().setAttribute("error", "Không thể xoá nhân viên: " + e.getMessage());
+                }
+            }
             resp.sendRedirect(req.getContextPath() + "/employee/pos?tab=users");
             return;
         }
@@ -50,7 +66,7 @@ public class StaffController extends HttpServlet {
             staff.setPassword(ParamUtil.getString(req, "password"));
             
             if (staffService.getStaffByEmail(staff.getEmail()) != null) {
-                req.getSession().setAttribute("error", "Email already exists!");
+                req.getSession().setAttribute("error", "Email này đã được sử dụng!");
                 resp.sendRedirect(req.getContextPath() + "/employee/pos?tab=users");
                 return;
             }

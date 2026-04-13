@@ -26,7 +26,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     </div>
-                    <input type="text" id="searchStaffInput" placeholder="Search staff..." class="w-full bg-white border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-coffee-500 focus:border-coffee-500 block pl-10 p-3 transition-colors shadow-sm">
+                    <input type="text" id="searchStaffInput" placeholder="Tìm kiếm nhân viên..." class="w-full bg-white border border-gray-200 text-gray-900 text-sm rounded-xl focus:ring-coffee-500 focus:border-coffee-500 block pl-10 p-3 transition-colors shadow-sm">
                 </div>
                 <a href="${pageContext.request.contextPath}/manager/staff/form" class="w-full sm:w-auto justify-center bg-coffee-700 hover:bg-coffee-800 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-sm flex items-center gap-2 group">
                     <i class="bi bi-person-plus group-hover:scale-110 transition-transform"></i>
@@ -35,6 +35,11 @@
             </div>
         </div>
 
+        <fmt:message key="admin.staff.status.active" var="staffActiveMsg"/>
+        <fmt:message key="admin.staff.status.locked" var="staffLockedMsg"/>
+        <fmt:message key="admin.role.manager" var="roleManagerMsg"/>
+        <fmt:message key="admin.role.staff" var="roleStaffMsg"/>
+        <fmt:message key="admin.staff.confirm.delete" var="staffDeleteMsg"/>
         <div id="staffGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <c:forEach var="s" items="${staffList}">
                 <div class="group bg-white p-6 rounded-2xl border border-gray-200 transition-all hover:-translate-y-1 hover:shadow-md shadow-sm">
@@ -42,11 +47,15 @@
                         <div class="w-14 h-14 rounded-xl bg-gray-50 flex items-center justify-center text-coffee-700 text-xl font-black border border-gray-100">
                             ${fn:substring(s.fullName, 0, 1)}
                         </div>
-                        <div class="flex flex-col items-end">
+                        <div class="flex flex-col items-end gap-1.5">
                             <span class="px-2.5 py-1 rounded-md text-[10px] font-bold border ${s.active ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}">
-                                ${s.active ? '<fmt:message key="admin.staff.status.active"/>' : '<fmt:message key="admin.staff.status.locked"/>'}
+                                ${s.active ? staffActiveMsg : staffLockedMsg}
                             </span>
-                            <span class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-tight">ID: #0${s.id}</span>
+                            <span class="px-2.5 py-1 rounded-md text-[10px] font-bold border ${s.role ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-sky-50 text-sky-700 border-sky-200'}">
+                                <i class="bi ${s.role ? 'bi-star-fill' : 'bi-person-badge'} mr-1"></i>
+                                ${s.role ? roleManagerMsg : roleStaffMsg}
+                            </span>
+                            <span class="text-[10px] font-bold text-gray-400 mt-1 uppercase tracking-tight">ID: #0${s.id}</span>
                         </div>
                     </div>
 
@@ -64,6 +73,11 @@
                         <div class="flex gap-2">
                             <a href="${pageContext.request.contextPath}/manager/staff/form?id=${s.id}" class="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow-sm">
                                 <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a href="${pageContext.request.contextPath}/manager/staff/delete?id=${s.id}"
+                               onclick="return confirm('${staffDeleteMsg}')"
+                               class="w-9 h-9 rounded-lg bg-red-50 text-red-600 hover:bg-red-600 hover:text-white flex items-center justify-center transition-all shadow-sm">
+                                <i class="bi bi-trash3"></i>
                             </a>
                         </div>
                         <c:choose>

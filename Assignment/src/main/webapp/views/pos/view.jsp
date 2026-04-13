@@ -128,45 +128,45 @@
                                 class="w-20 bg-white border-r border-slate-100 flex flex-col items-center py-8 gap-6 shrink-0 shadow-[4px_0_30px_rgb(0,0,0,0.03)] z-30">
                                 <a href="?tab=pos"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'pos' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="POS Dashboard">
+                                    title="Bảng Điều Khiển POS">
                                     <i class="bi bi-display-fill text-xl"></i>
                                 </a>
                                 <div class="w-10 h-px bg-slate-400 mx-auto"></div>
                                 <a href="?tab=drinks"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'drinks' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Menu Catalog">
+                                    title="Thực Đơn">
                                     <i class="bi bi-cup-hot-fill text-xl"></i>
                                 </a>
                                 <a href="?tab=categories"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'categories' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Categories">
+                                    title="Danh Mục">
                                     <i class="bi bi-tags-fill text-xl"></i>
                                 </a>
                                 <a href="?tab=users"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'users' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Staff Directory">
+                                    title="Danh Sách Nhân Viên">
                                     <i class="bi bi-people-fill text-xl"></i>
                                 </a>
                                 <a href="?tab=bills"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'bills' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Ledger / Bills">
+                                    title="Hoá Đơn / Sổ Cái">
                                     <i class="bi bi-receipt-cutoff text-xl"></i>
                                 </a>
                                 <a href="?tab=tables"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'tables' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Floor Planner">
+                                    title="Sơ Đồ Bàn">
                                     <i class="bi bi-grid-3x3-gap-fill text-xl"></i>
                                 </a>
                                 <div class="flex-grow"></div>
                                 <a href="?tab=stats"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all ${activeTab == 'stats' ? 'bg-[#6F4E37] text-white shadow-xl shadow-coffee-200 scale-110' : 'text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700'}"
-                                    title="Intelligence Science">
+                                    title="Thống Kê Thông Minh">
                                     <i class="bi bi-graph-up-arrow text-lg"></i>
                                 </a>
                                 <div class="w-10 h-px bg-slate-400 mx-auto"></div>
                                 <a href="${pageContext.request.contextPath}/auth/logout"
                                     class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all text-[#94a3b8] hover:bg-coffee-50 hover:text-coffee-700"
-                                    title="Logout">
+                                    title="Đăng Xuất">
                                     <i class="bi bi-box-arrow-right text-lg"></i>
                                 </a>
                             </div>
@@ -602,8 +602,8 @@
                                                                             value="${item.id}" />
                                                                         <button type="submit"
                                                                             class="bg-indigo-600 text-white hover:bg-indigo-700 px-3 py-1.5 rounded-lg transition-colors font-semibold text-xs"
-                                                                            title="Accept Guest Order">
-                                                                            Accept
+                                                                            title="Nhận Đơn Của Khách">
+                                                                            Nhận
                                                                         </button>
                                                                     </form>
                                                                 </c:if>
@@ -1271,7 +1271,7 @@
                                                             <a href="${pageContext.request.contextPath}/employee/pos"
                                                                 class="col-span-3 bg-blue-600 hover:bg-blue-700 rounded-xl h-14 flex items-center justify-center gap-2 text-white font-semibold text-lg shadow-[0_4px_14px_0_rgba(37,99,235,0.39)] transition-all active:scale-95">
                                                                 <i class="bi bi-plus-circle text-xl"></i>
-                                                                <span class="tracking-wide text-sm">New Order</span>
+                                                                <span class="tracking-wide text-sm">Đơn Mới</span>
                                                             </a>
                                                         </c:otherwise>
                                                     </c:choose>
@@ -1289,10 +1289,10 @@
                                     <div class="p-10">
                                         <div class="flex justify-between items-center mb-8">
                                             <div>
-                                                <h5 class="text-3xl font-black text-slate-900 tracking-tight">Table
-                                                    Entity</h5>
-                                                <p class="text-slate-400 font-medium text-sm mt-1">Configure layout
-                                                    parameters</p>
+                                                <h5 class="text-3xl font-black text-slate-900 tracking-tight">Thông Tin
+                                                    Bàn</h5>
+                                                <p class="text-slate-400 font-medium text-sm mt-1">Cấu hình tham số
+                                                    bố cục</p>
                                             </div>
                                             <button type="button"
                                                 class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-50 text-slate-400 hover:text-slate-900 transition-colors"
@@ -1305,35 +1305,35 @@
                                             method="POST" class="space-y-6">
                                             <div class="space-y-2">
                                                 <label
-                                                    class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Visible
-                                                    Name</label>
+                                                    class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Tên
+                                                    Hiển Thị</label>
                                                 <div class="relative">
                                                     <i
                                                         class="bi bi-tag absolute left-5 top-1/2 -translate-y-1/2 text-coffee-600/40 text-lg"></i>
                                                     <input type="text" name="name" required
-                                                        placeholder="e.g. Premium Table 04"
+                                                        placeholder="VD: Bàn Số 04"
                                                         class="w-full pl-14 pr-6 py-4 bg-slate-50 border border-slate-100 focus:bg-white focus:ring-4 focus:ring-coffee-100 focus:border-coffee-300 rounded-[24px] text-sm font-semibold text-slate-700 transition-all outline-none">
                                                 </div>
                                             </div>
 
                                             <div class="space-y-2">
                                                 <label
-                                                    class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Entity
-                                                    Code</label>
+                                                    class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Mã
+                                                    Bàn</label>
                                                 <div class="relative">
                                                     <i
                                                         class="bi bi-qr-code-scan absolute left-5 top-1/2 -translate-y-1/2 text-coffee-600/40 text-lg"></i>
-                                                    <input type="text" name="code" required placeholder="e.g. TABLE-04"
+                                                    <input type="text" name="code" required placeholder="VD: T04"
                                                         class="w-full pl-14 pr-6 py-4 bg-slate-50 border border-slate-100 focus:bg-white focus:ring-4 focus:ring-coffee-100 focus:border-coffee-300 rounded-[24px] text-sm font-semibold text-slate-700 transition-all outline-none uppercase">
                                                 </div>
                                             </div>
 
                                             <div class="flex gap-4 pt-4">
                                                 <button type="button" data-bs-dismiss="modal"
-                                                    class="flex-1 py-4 bg-slate-50 text-slate-400 font-black rounded-3xl hover:bg-slate-100 transition-all">Discard</button>
+                                                    class="flex-1 py-4 bg-slate-50 text-slate-400 font-black rounded-3xl hover:bg-slate-100 transition-all">Huỷ</button>
                                                 <button type="submit"
-                                                    class="flex-1 py-4 bg-coffee-700 text-white font-black rounded-3xl shadow-xl shadow-coffee-100 hover:bg-slate-900 transition-all active:scale-95">Save
-                                                    Entity</button>
+                                                    class="flex-1 py-4 bg-coffee-700 text-white font-black rounded-3xl shadow-xl shadow-coffee-100 hover:bg-slate-900 transition-all active:scale-95">Lưu
+                                                    Bàn</button>
                                             </div>
                                         </form>
                                     </div>
@@ -1722,11 +1722,11 @@
                             <div class="p-6 bg-gray-50 border-t border-gray-100 flex gap-3">
                                 <button onclick="hideDetailModal()"
                                     class="flex-grow bg-white border border-slate-200/60 text-gray-700 font-semibold py-3 rounded-2xl hover:bg-gray-100 transition-colors shadow-sm">
-                                    Close Window
+                                    Đóng
                                 </button>
                                 <button onclick="hideDetailModal(); showPrintModal();"
                                     class="w-14 bg-white border border-slate-200/60 text-coffee-600 rounded-2xl flex items-center justify-center hover:bg-coffee-50 transition-colors shadow-sm"
-                                    title="Print/Pay Options">
+                                    title="Tuỳ Chọn In / Thanh Toán">
                                     <i class="bi bi-printer-fill"></i>
                                 </button>
                             </div>
@@ -1792,7 +1792,7 @@
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content border-0 shadow-2xl rounded-[32px] overflow-hidden">
                                 <div class="modal-header border-b border-slate-200/60 bg-slate-50/50 px-8 py-6">
-                                    <h5 class="text-xl font-black text-gray-900" id="drinkModalLabel">Modify Product
+                                    <h5 class="text-xl font-black text-gray-900" id="drinkModalLabel">Chỉnh Sửa Sản Phẩm
                                     </h5>
                                     <button type="button"
                                         class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200/60 text-gray-400 hover:text-gray-900 transition-all"
@@ -1810,16 +1810,16 @@
                                             <div class="space-y-6">
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Product
-                                                        Identity</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Tên
+                                                        Sản Phẩm</label>
                                                     <input type="text" name="name" id="mDrinkName" required
-                                                        placeholder="Enter drink name..."
+                                                        placeholder="Nhập tên món..."
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                                 </div>
                                                 <div class="grid grid-cols-2 gap-4">
                                                     <div>
                                                         <label
-                                                            class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Category</label>
+                                                            class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Danh Mục</label>
                                                         <select name="categoryId" id="mDrinkCat"
                                                             class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl outline-none appearance-none font-semibold text-gray-900 focus:border-coffee-500 focus:bg-white transition-all cursor-pointer"
                                                             required>
@@ -1830,8 +1830,8 @@
                                                     </div>
                                                     <div>
                                                         <label
-                                                            class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Market
-                                                            Price</label>
+                                                            class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Giá
+                                                            Bán</label>
                                                         <div class="relative">
                                                             <input type="number" name="price" id="mDrinkPrice" required
                                                                 placeholder="0"
@@ -1843,19 +1843,19 @@
                                                 </div>
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Product
-                                                        Essence</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Mô Tả
+                                                        Sản Phẩm</label>
                                                     <textarea name="description" id="mDrinkDesc"
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl outline-none focus:border-coffee-500 focus:bg-white transition-all min-h-[120px] font-medium text-gray-600 resize-none"
-                                                        placeholder="Describe this masterpiece..."></textarea>
+                                                        placeholder="Mô tả hương vị đậm đà..."></textarea>
                                                 </div>
                                             </div>
                                             <!-- Media -->
                                             <div class="space-y-6">
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Visual
-                                                        Asset</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Hình
+                                                        Ảnh</label>
                                                     <div onclick="document.getElementById('mDrinkImgInput').click()"
                                                         class="relative border-4 border-dashed border-slate-100 rounded-[32px] p-2 flex flex-col items-center justify-center min-h-[240px] bg-slate-50 hover:bg-white hover:border-coffee-200 transition-all cursor-pointer group overflow-hidden">
                                                         <input type="file" name="image" id="mDrinkImgInput"
@@ -1870,7 +1870,7 @@
                                                             </div>
                                                             <p
                                                                 class="font-black text-slate-400 text-xs uppercase tracking-widest">
-                                                                Capture Visual</p>
+                                                                Tải Ảnh Lên</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1879,9 +1879,9 @@
                                                         <div>
                                                             <h4
                                                                 class="font-black text-gray-900 text-xs uppercase tracking-widest">
-                                                                Active Status</h4>
-                                                            <p class="text-[10px] text-slate-400 font-semibold mt-1">Make
-                                                                visible to consumers</p>
+                                                                Trạng Thái Hoạt Động</h4>
+                                                            <p class="text-[10px] text-slate-400 font-semibold mt-1">Hiển thị
+                                                                với khách hàng</p>
                                                         </div>
                                                         <div class="relative inline-block w-14 h-7">
                                                             <input type="checkbox" name="active" value="1"
@@ -1900,10 +1900,10 @@
                                     <div class="modal-footer border-t border-slate-200/60 bg-slate-50/50 px-8 py-6 gap-4">
                                         <button type="button"
                                             class="px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-white border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
-                                            data-bs-dismiss="modal">Abandon</button>
+                                            data-bs-dismiss="modal">Huỷ Bỏ</button>
                                         <button type="submit"
-                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Commit
-                                            Changes</button>
+                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Lưu
+                                            Thay Đổi</button>
                                     </div>
                                 </form>
                             </div>
@@ -1915,7 +1915,7 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content border-0 shadow-2xl rounded-[32px] overflow-hidden">
                                 <div class="modal-header border-b border-slate-200/60 bg-slate-50/50 px-8 py-6">
-                                    <h5 class="text-xl font-black text-gray-900" id="categoryModalLabel">Category Logic
+                                    <h5 class="text-xl font-black text-gray-900" id="categoryModalLabel">Danh Mục
                                     </h5>
                                     <button type="button"
                                         class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200/60 text-gray-400 hover:text-gray-900 transition-all"
@@ -1929,10 +1929,10 @@
                                     <div class="modal-body p-8 lg:p-10 space-y-8">
                                         <div>
                                             <label
-                                                class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Classification
-                                                Name</label>
+                                                class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Tên
+                                                Danh Mục</label>
                                             <input type="text" name="name" id="mCatName" required
-                                                placeholder="e.g., Espresso Series"
+                                                placeholder="VD: Dòng Espresso"
                                                 class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                         </div>
                                         <div class="bg-slate-50 p-6 rounded-[28px] border border-slate-100">
@@ -1940,9 +1940,9 @@
                                                 <div>
                                                     <h4
                                                         class="font-black text-gray-900 text-xs uppercase tracking-widest">
-                                                        Visibility state</h4>
-                                                    <p class="text-[10px] text-slate-400 font-semibold mt-1">Show this group
-                                                        in the menu</p>
+                                                        Trạng Thái Hiển Thị</h4>
+                                                    <p class="text-[10px] text-slate-400 font-semibold mt-1">Hiển thị nhóm này
+                                                        trên thực đơn</p>
                                                 </div>
                                                 <div class="relative inline-block w-14 h-7">
                                                     <input type="checkbox" name="active" value="1" id="mCatActive"
@@ -1959,9 +1959,9 @@
                                     <div class="modal-footer border-t border-slate-200/60 bg-slate-50/50 px-8 py-6 gap-4">
                                         <button type="button"
                                             class="px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-white border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
-                                            data-bs-dismiss="modal">Abandon</button>
+                                            data-bs-dismiss="modal">Huỷ Bỏ</button>
                                         <button type="submit"
-                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Synchronize</button>
+                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Đồng Bộ</button>
                                     </div>
                                 </form>
                             </div>
@@ -1973,8 +1973,7 @@
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content border-0 shadow-2xl rounded-[32px] overflow-hidden">
                                 <div class="modal-header border-b border-slate-200/60 bg-slate-50/50 px-8 py-6">
-                                    <h5 class="text-xl font-black text-gray-900" id="staffModalLabel">Human Resources
-                                        Portfolio</h5>
+                                    <h5 class="text-xl font-black text-gray-900" id="staffModalLabel">Hồ Sơ Nhân Sự</h5>
                                     <button type="button"
                                         class="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200/60 text-gray-400 hover:text-gray-900 transition-all"
                                         data-bs-dismiss="modal">
@@ -1989,47 +1988,46 @@
                                             <div class="space-y-6">
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Legal
-                                                        Identity</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Họ Tên
+                                                        Pháp Lý</label>
                                                     <input type="text" name="fullName" id="mStaffName" required
-                                                        placeholder="Full name..."
+                                                        placeholder="Họ và tên..."
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                                 </div>
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Secure
-                                                        Email</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Email</label>
                                                     <input type="email" name="email" id="mStaffEmail" required
                                                         placeholder="email@polycoffee.com"
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                                 </div>
                                                 <div id="mStaffPasswordRow">
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Access
-                                                        Credential</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Mật
+                                                        Khẩu</label>
                                                     <input type="password" name="password" id="mStaffPassword"
-                                                        placeholder="Minimum 6 characters..."
+                                                        placeholder="Tối thiểu 6 ký tự..."
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                                 </div>
                                             </div>
                                             <div class="space-y-6">
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Network
-                                                        Contact</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Số
+                                                        Điện Thoại</label>
                                                     <input type="text" name="phone" id="mStaffPhone" required
                                                         placeholder="098xxxxxxxx"
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl focus:ring-4 focus:ring-coffee-500/10 focus:border-coffee-500 focus:bg-white outline-none transition-all font-semibold text-gray-900">
                                                 </div>
                                                 <div>
                                                     <label
-                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Hierarchical
-                                                        Role</label>
+                                                        class="block text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-2.5">Vai
+                                                        Trò</label>
                                                     <select name="role" id="mStaffRole"
                                                         class="w-full bg-slate-50 border border-slate-200 px-5 py-4 rounded-2xl outline-none appearance-none font-semibold text-gray-900 focus:border-coffee-500 focus:bg-white transition-all cursor-pointer"
                                                         required>
-                                                        <option value="false">Staff Member</option>
-                                                        <option value="true">Executive Manager</option>
+                                                        <option value="false">Nhân Viên</option>
+                                                        <option value="true">Quản Lý</option>
                                                     </select>
                                                 </div>
                                                 <div class="bg-slate-50 p-6 rounded-[28px] border border-slate-100">
@@ -2037,9 +2035,9 @@
                                                         <div>
                                                             <h4
                                                                 class="font-black text-gray-900 text-xs uppercase tracking-widest">
-                                                                Active state</h4>
-                                                            <p class="text-[10px] text-slate-400 font-semibold mt-1">Grant
-                                                                system permissions</p>
+                                                                Trạng Thái Hoạt Động</h4>
+                                                            <p class="text-[10px] text-slate-400 font-semibold mt-1">Cấp quyền
+                                                                truy cập hệ thống</p>
                                                         </div>
                                                         <div class="relative inline-block w-14 h-7">
                                                             <input type="checkbox" name="active" value="1"
@@ -2058,10 +2056,10 @@
                                     <div class="modal-footer border-t border-slate-200/60 bg-slate-50/50 px-8 py-6 gap-4">
                                         <button type="button"
                                             class="px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-white border border-slate-200 text-slate-400 hover:bg-slate-50 hover:text-slate-900 transition-all"
-                                            data-bs-dismiss="modal">Abandon</button>
+                                            data-bs-dismiss="modal">Huỷ Bỏ</button>
                                         <button type="submit"
-                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Grant
-                                            Clearance</button>
+                                            class="px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest bg-coffee-700 text-white shadow-xl shadow-coffee-200 hover:bg-coffee-800 transition-all">Xác
+                                            Nhận</button>
                                     </div>
                                 </form>
                             </div>
@@ -2661,7 +2659,7 @@
                             if (!document.getElementById('todayRevenueText')) return;
 
                             document.getElementById('todayRevenueText').innerText = data.todayRevenue.toLocaleString() + ' ₫';
-                            document.getElementById('todayOrdersText').innerHTML = data.todayOrders + ' <span class="text-sm font-semibold text-slate-400">Bills</span>';
+                            document.getElementById('todayOrdersText').innerHTML = data.todayOrders + ' <span class="text-sm font-semibold text-slate-400">Hoá Đơn</span>';
                             document.getElementById('weekRevenueText').innerText = data.weekRevenue.toLocaleString() + ' ₫';
                             document.getElementById('totalBillsText').innerText = data.totalBills;
 

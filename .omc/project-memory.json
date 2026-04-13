@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775890982322,
+  "lastScanned": 1776067552562,
   "projectRoot": "D:\\Code\\FPL_JAV202",
   "techStack": {
     "languages": [],
@@ -36,7 +36,7 @@
       "path": "Assignment",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1775890982304,
+      "lastAccessed": 1776067552535,
       "keyFiles": [
         "CLAUDE.md",
         "docker-compose.yml",
@@ -49,7 +49,7 @@
       "path": "Lab1",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775890982305,
+      "lastAccessed": 1776067552535,
       "keyFiles": [
         "Lab1.docx"
       ]
@@ -58,7 +58,7 @@
       "path": "Lab2",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775890982305,
+      "lastAccessed": 1776067552535,
       "keyFiles": [
         "Lab2.docx"
       ]
@@ -67,7 +67,7 @@
       "path": "Lab3",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775890982306,
+      "lastAccessed": 1776067552536,
       "keyFiles": [
         "Polycafe.sql",
         "pom.xml"
@@ -77,7 +77,7 @@
       "path": "Lab4",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775890982306,
+      "lastAccessed": 1776067552536,
       "keyFiles": [
         "mvnw",
         "mvnw.cmd",
@@ -88,7 +88,7 @@
       "path": "Lab5",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1775890982307,
+      "lastAccessed": 1776067552536,
       "keyFiles": [
         "mvnw",
         "mvnw.cmd",
@@ -100,7 +100,7 @@
       "path": "Lab6",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1775890982307,
+      "lastAccessed": 1776067552536,
       "keyFiles": [
         "mvnw",
         "mvnw.cmd",
@@ -112,7 +112,7 @@
       "path": "Lab7",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775890982307,
+      "lastAccessed": 1776067552537,
       "keyFiles": [
         "Lab7.docx"
       ]
@@ -121,26 +121,175 @@
       "path": "Lab8",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775890982307,
+      "lastAccessed": 1776067552537,
       "keyFiles": [
         "Lab8.docx"
+      ]
+    },
+    "Assignment\\docs": {
+      "path": "Assignment\\docs",
+      "purpose": "Documentation",
+      "fileCount": 2,
+      "lastAccessed": 1776067552537,
+      "keyFiles": [
+        "test-plan-vi.md",
+        "test-plan.md"
       ]
     },
     "Lab3\\src": {
       "path": "Lab3\\src",
       "purpose": "Source code",
       "fileCount": 0,
-      "lastAccessed": 1775890982309,
+      "lastAccessed": 1776067552538,
       "keyFiles": []
     },
     "Lab4\\src": {
       "path": "Lab4\\src",
       "purpose": "Source code",
       "fileCount": 0,
-      "lastAccessed": 1775890982310,
+      "lastAccessed": 1776067552539,
       "keyFiles": []
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\pos\\view.jsp",
+      "accessCount": 53,
+      "lastAccessed": 1776069345751,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\categories\\list.jsp",
+      "accessCount": 4,
+      "lastAccessed": 1776068718849,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller\\StaffController.java",
+      "accessCount": 4,
+      "lastAccessed": 1776068770536,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\staff\\staff-list.jsp",
+      "accessCount": 4,
+      "lastAccessed": 1776068804922,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\drink\\manager-list.jsp",
+      "accessCount": 3,
+      "lastAccessed": 1776068701499,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\repository\\UserRepository.java",
+      "accessCount": 3,
+      "lastAccessed": 1776068749548,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\service\\StaffService.java",
+      "accessCount": 2,
+      "lastAccessed": 1776068727424,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\resources\\messages.properties",
+      "accessCount": 2,
+      "lastAccessed": 1776068810767,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\test",
+      "accessCount": 2,
+      "lastAccessed": 1776069358121,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\DbMigrationTest.java",
+      "accessCount": 2,
+      "lastAccessed": 1776069376156,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\FixDbTest.java",
+      "accessCount": 2,
+      "lastAccessed": 1776069381664,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\docker-compose.yml",
+      "accessCount": 1,
+      "lastAccessed": 1776068007332,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\resources\\META-INF\\persistence.xml",
+      "accessCount": 1,
+      "lastAccessed": 1776068013047,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller\\AuthController.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068360352,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\service\\AuthService.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068361130,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\util\\AuthUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068361460,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\User.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068361865,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\init.sql",
+      "accessCount": 1,
+      "lastAccessed": 1776068367395,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller\\CategoryController.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068623867,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\staff\\staff-form.jsp",
+      "accessCount": 1,
+      "lastAccessed": 1776068659334,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\repository\\BaseRepository.java",
+      "accessCount": 1,
+      "lastAccessed": 1776068732031,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\service\\BillServiceTest.java",
+      "accessCount": 1,
+      "lastAccessed": 1776069363639,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\service\\GuestOrderPosTest.java",
+      "accessCount": 1,
+      "lastAccessed": 1776069363710,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }

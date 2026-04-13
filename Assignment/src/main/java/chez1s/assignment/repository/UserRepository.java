@@ -3,6 +3,7 @@ package chez1s.assignment.repository;
 import chez1s.assignment.entity.User;
 import chez1s.assignment.util.JpaUtil;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import java.util.List;
 
@@ -19,6 +20,27 @@ public class UserRepository extends BaseRepository<User, Integer> {
                      .getSingleResult();
         } catch (NoResultException e) {
             return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    public void deleteWithBillDetachment(Integer id) {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction trans = em.getTransaction();
+        try {
+            trans.begin();
+            em.createNativeQuery("UPDATE bills SET user_id = NULL WHERE user_id = :id")
+              .setParameter("id", id)
+              .executeUpdate();
+            User user = em.find(User.class, id);
+            if (user != null) {
+                em.remove(user);
+            }
+            trans.commit();
+        } catch (Exception e) {
+            if (trans.isActive()) trans.rollback();
+            throw e;
         } finally {
             em.close();
         }
