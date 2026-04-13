@@ -24,7 +24,8 @@
       "Bash(docker version:*)",
       "Bash(powershell:*)",
       "Bash(docker-compose up:*)",
-      "Bash(docker exec:*)"
+      "Bash(docker exec:*)",
+      "Bash(./mvnw -q test -Dtest='DbMigrationTest,FixDbTest')"
     ]
   }
 }

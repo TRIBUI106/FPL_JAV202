@@ -1,0 +1,15 @@
+{
+  "agents": [
+    {
+      "agent_id": "a492a4747c91de363",
+      "agent_type": "oh-my-claudecode:test-engineer",
+      "started_at": "2026-04-13T08:41:16.410Z",
+      "parent_mode": "none",
+      "status": "running"
+    }
+  ],
+  "total_spawned": 1,
+  "total_completed": 0,
+  "total_failed": 0,
+  "last_updated": "2026-04-13T08:41:16.516Z"
+}

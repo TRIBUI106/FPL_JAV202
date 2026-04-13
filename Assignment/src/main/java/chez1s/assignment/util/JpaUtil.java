@@ -10,18 +10,32 @@ import jakarta.persistence.Persistence;
  */
 public final class JpaUtil {
 
-    private static final EntityManagerFactory EMF =
-            Persistence.createEntityManagerFactory("default");
+    private static volatile EntityManagerFactory EMF;
 
     private JpaUtil() {}
 
+    private static EntityManagerFactory getFactory() {
+        EntityManagerFactory local = EMF;
+        if (local == null) {
+            synchronized (JpaUtil.class) {
+                local = EMF;
+                if (local == null) {
+                    local = Persistence.createEntityManagerFactory("default");
+                    EMF = local;
+                }
+            }
+        }
+        return local;
+    }
+
     public static EntityManager getEntityManager() {
-        return EMF.createEntityManager();
+        return getFactory().createEntityManager();
     }
 
     public static void close() {
-        if (EMF != null && EMF.isOpen()) {
-            EMF.close();
+        EntityManagerFactory local = EMF;
+        if (local != null && local.isOpen()) {
+            local.close();
         }
     }
 }
