@@ -1,0 +1,291 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1775633469019,
+  "projectRoot": "C:\\Users\\TRIBUI106\\Desktop\\Projects\\FPL_JAV202",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "Assignment": {
+      "path": "Assignment",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1775633469000,
+      "keyFiles": [
+        "CLAUDE.md",
+        "docker-compose.yml",
+        "init.sql",
+        "mvnw",
+        "mvnw.cmd"
+      ]
+    },
+    "Lab1": {
+      "path": "Lab1",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775633469001,
+      "keyFiles": [
+        "Lab1.docx"
+      ]
+    },
+    "Lab2": {
+      "path": "Lab2",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775633469001,
+      "keyFiles": [
+        "Lab2.docx"
+      ]
+    },
+    "Lab3": {
+      "path": "Lab3",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1775633469002,
+      "keyFiles": [
+        "Polycafe.sql",
+        "pom.xml"
+      ]
+    },
+    "Lab4": {
+      "path": "Lab4",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1775633469002,
+      "keyFiles": [
+        "mvnw",
+        "mvnw.cmd",
+        "pom.xml"
+      ]
+    },
+    "Lab5": {
+      "path": "Lab5",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1775633469003,
+      "keyFiles": [
+        "mvnw",
+        "mvnw.cmd",
+        "polycoffee.sql",
+        "pom.xml"
+      ]
+    },
+    "Lab6": {
+      "path": "Lab6",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1775633469003,
+      "keyFiles": [
+        "mvnw",
+        "mvnw.cmd",
+        "polycoffee.sql",
+        "pom.xml"
+      ]
+    },
+    "Lab7": {
+      "path": "Lab7",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775633469004,
+      "keyFiles": [
+        "Lab7.docx"
+      ]
+    },
+    "Lab8": {
+      "path": "Lab8",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1775633469004,
+      "keyFiles": [
+        "Lab8.docx"
+      ]
+    },
+    "Lab3\\src": {
+      "path": "Lab3\\src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1775633469005,
+      "keyFiles": []
+    },
+    "Lab4\\src": {
+      "path": "Lab4\\src",
+      "purpose": "Source code",
+      "fileCount": 0,
+      "lastAccessed": 1775633469005,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\pos\\view.jsp",
+      "accessCount": 11,
+      "lastAccessed": 1775205255558,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller\\PosController.java",
+      "accessCount": 7,
+      "lastAccessed": 1775205193351,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\repository\\BillRepository.java",
+      "accessCount": 6,
+      "lastAccessed": 1775204521780,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\service\\BillService.java",
+      "accessCount": 4,
+      "lastAccessed": 1775205162623,
+      "type": "file"
+    },
+    {
+      "path": "src/main/resources/messages.properties",
+      "accessCount": 3,
+      "lastAccessed": 1775201849803,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\webapp\\views\\bills\\list.jsp",
+      "accessCount": 3,
+      "lastAccessed": 1775201997366,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\resources\\messages.properties",
+      "accessCount": 2,
+      "lastAccessed": 1775201948142,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller\\BillController.java",
+      "accessCount": 2,
+      "lastAccessed": 1775201967853,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\Bill.java",
+      "accessCount": 1,
+      "lastAccessed": 1775201809375,
+      "type": "file"
+    },
+    {
+      "path": "src/main/webapp/views/staff/staff-list.jsp",
+      "accessCount": 1,
+      "lastAccessed": 1775201829783,
+      "type": "directory"
+    },
+    {
+      "path": "src/main/java/chez1s/assignment",
+      "accessCount": 1,
+      "lastAccessed": 1775201890730,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\User.java",
+      "accessCount": 1,
+      "lastAccessed": 1775201895326,
+      "type": "file"
+    },
+    {
+      "path": "src/main/java/chez1s/assignment/util/AuthUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1775201896630,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\util\\AuthUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1775201902206,
+      "type": "file"
+    },
+    {
+      "path": "src/main/webapp/views/pos/view.jsp",
+      "accessCount": 1,
+      "lastAccessed": 1775202343335,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\repository\\BaseRepository.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202385242,
+      "type": "file"
+    },
+    {
+      "path": "src/main/java/chez1s/assignment/util/ParamUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202643630,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\util\\ParamUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202649103,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\util\\JpaUtil.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202783268,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\resources\\META-INF\\persistence.xml",
+      "accessCount": 1,
+      "lastAccessed": 1775202801983,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\filter\\AuthFilter.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202843673,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\BillDetail.java",
+      "accessCount": 1,
+      "lastAccessed": 1775202992555,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\BillStatus.java",
+      "accessCount": 1,
+      "lastAccessed": 1775205110629,
+      "type": "file"
+    },
+    {
+      "path": "src/main/java/chez1s/assignment/service/BillService.java",
+      "accessCount": 1,
+      "lastAccessed": 1775205170226,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}
