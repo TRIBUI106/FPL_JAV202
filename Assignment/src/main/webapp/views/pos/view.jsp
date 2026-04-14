@@ -2082,12 +2082,12 @@
                             document.getElementById('noteModalDrinkName').textContent = drinkName || '';
 
                             const chipsEl = document.getElementById('noteChips');
-                            chipsEl.innerHTML = NOTE_PRESETS.map(n =>
-                                `<button type="button" onclick="toggleNoteChip(this,'${n}')"
-                                    class="note-chip px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200/60 bg-white text-slate-600 hover:border-coffee-300 hover:bg-coffee-50 hover:text-coffee-700 transition-all active:scale-95">
-                                    ${n}
-                                </button>`
-                            ).join('');
+                            chipsEl.innerHTML = NOTE_PRESETS.map(function(n) {
+                                return '<button type="button" onclick="toggleNoteChip(this,\'' + n + '\')"'
+                                    + ' class="note-chip px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-200/60 bg-white text-slate-600 hover:border-coffee-300 hover:bg-coffee-50 hover:text-coffee-700 transition-all active:scale-95">'
+                                    + n
+                                    + '</button>';
+                            }).join('');
 
                             const customInput = document.getElementById('noteCustomInput');
                             customInput.value = '';

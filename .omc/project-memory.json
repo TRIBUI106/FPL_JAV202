@@ -154,9 +154,15 @@
   "hotPaths": [
     {
       "path": "Assignment\\src\\main\\webapp\\views\\pos\\view.jsp",
-      "accessCount": 53,
-      "lastAccessed": 1776069345751,
+      "accessCount": 64,
+      "lastAccessed": 1776148104512,
       "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\DbMigrationTest.java",
+      "accessCount": 5,
+      "lastAccessed": 1776069730093,
+      "type": "file"
     },
     {
       "path": "Assignment\\src\\main\\webapp\\views\\categories\\list.jsp",
@@ -189,6 +195,12 @@
       "type": "file"
     },
     {
+      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\FixDbTest.java",
+      "accessCount": 3,
+      "lastAccessed": 1776069751295,
+      "type": "file"
+    },
+    {
       "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\service\\StaffService.java",
       "accessCount": 2,
       "lastAccessed": 1776068727424,
@@ -207,16 +219,16 @@
       "type": "directory"
     },
     {
-      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\DbMigrationTest.java",
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\util\\JpaUtil.java",
       "accessCount": 2,
-      "lastAccessed": 1776069376156,
+      "lastAccessed": 1776069832825,
       "type": "file"
     },
     {
-      "path": "Assignment\\src\\test\\java\\chez1s\\assignment\\db\\FixDbTest.java",
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity",
       "accessCount": 2,
-      "lastAccessed": 1776069381664,
-      "type": "file"
+      "lastAccessed": 1776148029836,
+      "type": "directory"
     },
     {
       "path": "Assignment\\docker-compose.yml",
@@ -289,6 +301,24 @@
       "accessCount": 1,
       "lastAccessed": 1776069363710,
       "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\entity\\Drink.java",
+      "accessCount": 1,
+      "lastAccessed": 1776148032487,
+      "type": "file"
+    },
+    {
+      "path": "Assignment\\src\\main\\java",
+      "accessCount": 1,
+      "lastAccessed": 1776148045736,
+      "type": "directory"
+    },
+    {
+      "path": "Assignment\\src\\main\\java\\chez1s\\assignment\\controller",
+      "accessCount": 1,
+      "lastAccessed": 1776148055373,
+      "type": "directory"
     }
   ],
   "userDirectives": []
