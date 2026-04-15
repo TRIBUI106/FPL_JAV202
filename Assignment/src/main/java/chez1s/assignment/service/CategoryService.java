@@ -5,7 +5,15 @@ import chez1s.assignment.repository.CategoryRepository;
 import java.util.List;
 
 public class CategoryService {
-    private final CategoryRepository categoryRepo = new CategoryRepository();
+    private final CategoryRepository categoryRepo;
+
+    public CategoryService() {
+        this.categoryRepo = new CategoryRepository();
+    }
+
+    public CategoryService(CategoryRepository categoryRepo) {
+        this.categoryRepo = categoryRepo;
+    }
 
     public List<Category> getAllCategories() {
         return categoryRepo.findAll();

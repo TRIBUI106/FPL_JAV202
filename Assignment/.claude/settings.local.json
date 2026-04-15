@@ -27,7 +27,13 @@
       "Bash(docker exec:*)",
       "Bash(./mvnw -q test -Dtest='DbMigrationTest,FixDbTest')",
       "Bash(ls D:/Code/FPL_JAV202/Assignment/target/surefire-reports/*.txt)",
-      "Bash(grep -E \"^\\(Tests run|.+\\\\\\(\\\\\\)  Time\\)\" *.txt)"
+      "Bash(grep -E \"^\\(Tests run|.+\\\\\\(\\\\\\)  Time\\)\" *.txt)",
+      "mcp__plugin_oh-my-claudecode_t__state_list_active",
+      "mcp__plugin_oh-my-claudecode_t__state_get_status",
+      "mcp__plugin_oh-my-claudecode_t__state_write",
+      "mcp__plugin_oh-my-claudecode_t__state_clear",
+      "Read(//d/Code/FPL_JAV202/.omc/state/**)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); hooks=d.get\\('hooks',{}\\); [print\\(k,v\\) for k,v in hooks.items\\(\\)]\")"
     ]
   }
 }

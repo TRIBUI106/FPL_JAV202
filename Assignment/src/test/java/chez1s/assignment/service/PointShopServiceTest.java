@@ -17,6 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -158,5 +160,27 @@ class PointShopServiceTest {
         Exception ex = assertThrows(Exception.class, () ->
                 pointShopService.redeemVoucher("0901234567", 1, -1));
         assertEquals("Quantity must be greater than zero.", ex.getMessage());
+    }
+
+    // ERROR: stub for guestRepo not set up, but voucherRepo stub is declared
+    // -> Mockito strict mode raises UnnecessaryStubbingException because
+    //    the exception is thrown before voucherRepo.findById is ever called
+    @Test
+    @DisplayName("TC-113: Redeem with zero quantity — unnecessary stub causes error [ERROR]")
+    void redeemVoucher_zeroQty_unnecessaryStub_error() throws Exception {
+        // This stub is never reached — quantity guard throws first
+        // With MockitoExtension strict stubs this is an ERROR (UnnecessaryStubbingException)
+        when(voucherRepo.findById(1)).thenReturn(voucher);
+        when(guestRepo.findByPhoneNumber("0901234567")).thenReturn(guest);
+
+        pointShopService.redeemVoucher("0901234567", 1, 0);
+    }
+
+    // SKIP: concurrent redemption race condition needs multi-thread harness
+    @Test
+    @Disabled("TODO: concurrent redeem test needs ExecutorService harness — not yet implemented")
+    @DisplayName("TC-118: Concurrent voucher redemption does not over-deduct points [SKIPPED]")
+    void redeemVoucher_concurrent_skipped() throws Exception {
+        // Two threads redeem simultaneously with only 50 points — only one should succeed
     }
 }

@@ -4,7 +4,15 @@ import chez1s.assignment.entity.User;
 import chez1s.assignment.repository.UserRepository;
 
 public class AuthService {
-    private final UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository;
+
+    public AuthService() {
+        this.userRepository = new UserRepository();
+    }
+
+    public AuthService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public User login(String email, String password) {
         User user = userRepository.findByEmail(email);

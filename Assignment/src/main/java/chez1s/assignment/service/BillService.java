@@ -11,7 +11,15 @@ import java.util.Date;
 import java.util.List;
 
 public class BillService {
-    private final BillRepository billRepo = new BillRepository();
+    private final BillRepository billRepo;
+
+    public BillService() {
+        this.billRepo = new BillRepository();
+    }
+
+    public BillService(BillRepository billRepo) {
+        this.billRepo = billRepo;
+    }
 
     public List<Bill> getUserBills(Integer userId) {
         return billRepo.findByUserId(userId);

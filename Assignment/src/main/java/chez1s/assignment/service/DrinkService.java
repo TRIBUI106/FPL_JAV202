@@ -5,7 +5,15 @@ import chez1s.assignment.repository.DrinkRepository;
 import java.util.List;
 
 public class DrinkService {
-    private final DrinkRepository drinkRepo = new DrinkRepository();
+    private final DrinkRepository drinkRepo;
+
+    public DrinkService() {
+        this.drinkRepo = new DrinkRepository();
+    }
+
+    public DrinkService(DrinkRepository drinkRepo) {
+        this.drinkRepo = drinkRepo;
+    }
 
     public List<Drink> getAllDrinks() {
         return drinkRepo.findAll();

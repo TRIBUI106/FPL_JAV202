@@ -13,6 +13,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -176,5 +178,33 @@ class StaffServiceTest {
         when(userRepository.findById(999)).thenReturn(null);
         staffService.updateStatus(999, true);
         verify(userRepository, never()).update(any());
+    }
+
+    // FAILURE: asserts email is changeable via updateStaff, but service never updates email
+    @Test
+    @DisplayName("TC-028: Update staff email [KNOWN FAILING — service does not persist email]")
+    void updateStaff_emailChange_fails() {
+        when(userRepository.findById(1)).thenReturn(existingStaff);
+
+        User updates = new User();
+        updates.setId(1);
+        updates.setFullName("John");
+        updates.setPhone("0901234567");
+        updates.setActive(true);
+        updates.setEmail("newemail@test.com");
+
+        staffService.updateStaff(updates);
+
+        // FAILS: updateStaff copies fullName/phone/active only — email stays "staff@test.com"
+        assertEquals("newemail@test.com", existingStaff.getEmail());
+    }
+
+    // SKIP: deleteStaff calls deleteWithBillDetachment which hits DB — needs integration setup
+    @Test
+    @Disabled("TODO: deleteWithBillDetachment requires live DB transaction — skip until integration test harness ready")
+    @DisplayName("TC-030: Delete staff detaches bills [SKIPPED]")
+    void deleteStaff_detachesBills_skipped() {
+        staffService.deleteStaff(1);
+        verify(userRepository).deleteWithBillDetachment(1);
     }
 }

@@ -10,9 +10,21 @@ import chez1s.assignment.repository.VoucherRepository;
 import java.util.List;
 
 public class PointShopService {
-    private final VoucherRepository voucherRepo = new VoucherRepository();
-    private final GuestVoucherRepository guestVoucherRepo = new GuestVoucherRepository();
-    private final GuestRepository guestRepo = new GuestRepository();
+    private final VoucherRepository voucherRepo;
+    private final GuestVoucherRepository guestVoucherRepo;
+    private final GuestRepository guestRepo;
+
+    public PointShopService() {
+        this.voucherRepo = new VoucherRepository();
+        this.guestVoucherRepo = new GuestVoucherRepository();
+        this.guestRepo = new GuestRepository();
+    }
+
+    public PointShopService(VoucherRepository voucherRepo, GuestVoucherRepository guestVoucherRepo, GuestRepository guestRepo) {
+        this.voucherRepo = voucherRepo;
+        this.guestVoucherRepo = guestVoucherRepo;
+        this.guestRepo = guestRepo;
+    }
 
     public List<Voucher> getAvailableVouchers() {
         return voucherRepo.findAll();

@@ -4,7 +4,15 @@ import chez1s.assignment.entity.Guest;
 import chez1s.assignment.repository.GuestRepository;
 
 public class GuestService {
-    private final GuestRepository guestRepository = new GuestRepository();
+    private final GuestRepository guestRepository;
+
+    public GuestService() {
+        this.guestRepository = new GuestRepository();
+    }
+
+    public GuestService(GuestRepository guestRepository) {
+        this.guestRepository = guestRepository;
+    }
 
     public Guest findOrCreateGuest(String fullname, String phoneNumber) {
         Guest guest = guestRepository.findByPhoneNumber(phoneNumber);

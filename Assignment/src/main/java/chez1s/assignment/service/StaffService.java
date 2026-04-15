@@ -5,13 +5,22 @@ import chez1s.assignment.repository.UserRepository;
 import java.util.List;
 
 public class StaffService {
-    private final UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository;
+
+    public StaffService() {
+        this.userRepository = new UserRepository();
+    }
+
+    public StaffService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> getAllStaff() {
-        return userRepository.findAll();
+        return userRepository.findByRole(false);
     }
 
     public void createStaff(User user) {
+        user.setRole(false);
         user.setActive(true);
         userRepository.create(user);
     }

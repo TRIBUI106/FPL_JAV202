@@ -5,7 +5,15 @@ import chez1s.assignment.repository.TableRepository;
 import java.util.List;
 
 public class TableService {
-    private final TableRepository tableRepo = new TableRepository();
+    private final TableRepository tableRepo;
+
+    public TableService() {
+        this.tableRepo = new TableRepository();
+    }
+
+    public TableService(TableRepository tableRepo) {
+        this.tableRepo = tableRepo;
+    }
 
     public List<CoffeeTable> getAllTables() {
         return tableRepo.findAll();

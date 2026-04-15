@@ -15,6 +15,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -243,5 +245,38 @@ class BillServiceTest {
         Bill result = billService.getBillWithDetails(1);
         assertNotNull(result);
         assertNotNull(result.getBillDetails());
+    }
+
+    // FAILURE: wrong expected total — bill has price=35000 * qty=2 = 70000, but asserts 50000
+    @Test
+    @DisplayName("TC-120: Bill total recalculation after quantity update [KNOWN FAILING]")
+    void billTotal_afterQuantityUpdate_wrong() {
+        // waitingBill total is 70000 but we assert 50000 — this will FAIL
+        assertEquals(50000, waitingBill.getTotal(),
+                "Expected total to be 50000 after recalculation");
+    }
+
+    // ERROR: stub returns null for a bill that the service tries to call .getStatus() on
+    // -> NullPointerException because findById returns null but code dereferences it
+    @Test
+    @DisplayName("TC-121: Checkout with missing repo stub causes NPE [ERROR]")
+    void checkout_missingStub_causesError() {
+        // Intentionally no stub for billRepo.findById(42) — returns null by default,
+        // then billService.checkout calls bill.getStatus() -> NullPointerException
+        // But BillService guards with null check, so stub to return a detached bill
+        // that has null status to trigger the valueOf NPE path via updateStatus
+        billService.updateStatus(42, "INVALID_STATUS"); // throws IllegalArgumentException
+    }
+
+    // SKIP: integration test for addDrinkToBill needs a live EntityManager — not ready yet
+    @Test
+    @Disabled("TODO: requires embedded DB — EntityManager not available in unit scope")
+    @DisplayName("TC-122: addDrinkToBill creates new bill when billId is null [SKIPPED]")
+    void addDrinkToBill_newBill_skipped() {
+        // Will be enabled once H2 in-memory JPA config is wired up
+        User user = new User();
+        user.setId(1);
+        Integer result = billService.addDrinkToBill(null, 1, 1, user);
+        assertNotNull(result);
     }
 }

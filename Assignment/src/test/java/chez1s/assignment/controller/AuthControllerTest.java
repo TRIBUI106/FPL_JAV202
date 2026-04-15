@@ -38,9 +38,7 @@ class AuthControllerTest {
     @Test
     @DisplayName("TC-008: Logout clears session and redirects")
     void logout_clearsSession() throws Exception {
-        when(req.getRequestURI()).thenReturn("/auth/logout");
         when(req.getSession(false)).thenReturn(session);
-        when(req.getContextPath()).thenReturn("");
 
         AuthUtil.clear(req);
         verify(session).removeAttribute("user");
